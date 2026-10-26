@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="mr">
+<link rel="stylesheet" href="assets/css/style.css">
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -120,7 +121,7 @@
  }
  </style>
 </head>
-
+<script src="assets/js/app.js"></script>
 <body>
  <div class="top">ADAi, NEW PANVEL • ₹1,500 पेक्षा जास्त खरेदीवर मोफत डिलिव्हरी</div>
 
