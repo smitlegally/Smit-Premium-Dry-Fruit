@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Smit Premium Dry Fruits | Aadai, New Panvel</title>
+ <style>
+ :root{
+ --ink:#102b22; --green:#123d2e; --mint:#e9f1e9;
+ --gold:#c89b3c; --cream:#fbf8ef; --white:#fff;
+ --shadow:0 15px 40px rgba(16,43,34,.12);
+ }
+ *{box-sizing:border-box}
+ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--cream);color:#1f2924}
+ button,input,select,textarea{font:inherit}
+ button{cursor:pointer;border:0}
+.top{background:var(--ink);color:#eee4cb;text-align:center;padding:9px 16px;font-size:13px;font-weight:700}
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px 6%;background:rgba(251,248,239,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e7dfca}
+.logo{font-family:Georgia,serif;font-size:23px;font-weight:800;color:var(--green)}
+.logo span{color:var(--gold)}
+.links{display:flex;gap:20px;color:#315042;font-size:14px}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn{padding:11px 17px;border-radius:9px;font-weight:800;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--gold);color:#17251f}
+.dark{background:var(--green);color:white}
+.outline{background:transparent;color:var(--green);border:1px solid #587467}
+
+.hero{
+ min-height:500px;padding:75px 8%;
+ background:linear-gradient(90deg,rgba(14,48,36,.98),rgba(14,48,36,.74)),
+ url('https://images.unsplash.com/photo-1599599810694-b5b37304c041?auto=format&fit=crop&w=1600&q=80') center/cover;
+ display:flex;align-items:center;color:white;
+ }
+.hero-inner{max-width:690px}
+.eyebrow{letter-spacing:2px;text-transform:uppercase;font-weight:800;font-size:12px;color:#edc86d}
+.hero h1{font:700 clamp(39px,6vw,70px)/1.05 Georgia,serif;margin:14px 0}
+.hero p{font-size:18px;line-height:1.6;color:#e2eee7;max-width:580px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}
+.chip{padding:8px 12px;border:1px solid #8da99d;border-radius:20px;color:#eaf5ee;font-size:13px}
+
+.wrap{max-width:1260px;margin:auto;padding:65px 5%}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:24px}
+.section-title h2{font:700 34px Georgia,serif;color:var(--green);margin:0}
+.section-title p{margin:6px 0 0;color:#627168}
+.search{width:min(440px,100%);padding:13px 15px;border-radius:9px;border:1px solid #d3d8cc;background:white;outline:none}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:19px}
+.card{position:relative;border-radius:14px;background:white;box-shadow:var(--shadow);overflow:hidden}
+.card img{width:100%;height:170px;object-fit:cover}
+.card-body{padding:15px}
+.badge{position:absolute;top:12px;left:12px;background:#b34833;color:white;border-radius:6px;padding:6px 8px;font-size:12px;font-weight:800}
+.name{font-weight:850;color:var(--ink);font-size:17px}
+.small{font-size:13px;color:#647268;margin-top:5px}
+.price{display:flex;gap:8px;align-items:center;margin:12px 0;font-weight:850;color:var(--green)}
+.mrp{text-decoration:line-through;color:#888;font-weight:500;font-size:13px}
+.add-row{display:flex;gap:7px}
+.qty{width:65px;border:1px solid #d7dfd7;border-radius:7px;text-align:center}
+.add-row.btn{flex:1;padding:10px}
+
+.perks{background:var(--mint);padding:28px 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.perk strong{color:var(--green);display:block}
+.perk span{font-size:13px;color:#5e7064}
+
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.step{padding:22px;border:1px solid #dedccd;border-radius:12px;background:#fff}
+.num{color:var(--gold);font-size:26px;font-family:Georgia,serif;font-weight:bold}
+.step h3{margin:5px 0;color:var(--green);font-size:17px}
+.step p{margin:0;color:#67746b;font-size:14px;line-height:1.45}
+
+.footer{background:var(--ink);color:#dce9df;padding:45px 7%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
+.footer h3{color:#edc86d;margin-top:0}
+.footer p{line-height:1.6;color:#b7c8bd}
+
+.fab{position:fixed;right:22px;bottom:22px;z-index:30;background:var(--green);color:#fff;width:60px;height:60px;border-radius:50%;box-shadow:0 10px 25px #183e2b99;font-size:25px}
+.bucket{position:fixed;right:22px;bottom:94px;z-index:30;background:var(--gold);color:#173024;padding:12px 15px;border-radius:24px;font-weight:900;box-shadow:var(--shadow)}
+
+.modal{position:fixed;inset:0;background:#091810a8;z-index:50;display:none;align-items:center;justify-content:center;padding:17px}
+.modal.show{display:flex}
+.panel{width:min(650px,100%);max-height:92vh;overflow:auto;background:#fbfaf5;border-radius:15px;padding:24px;box-shadow:0 20px 70px #0008}
+.panel h2{color:var(--green);font-family:Georgia,serif;margin-top:0}
+.close{float:right;font-size:23px;background:none;color:#234}
+.field{width:100%;padding:12px;margin:7px 0 13px;border:1px solid #d1d8cf;border-radius:7px}
+.login-note{font-size:12px;color:#607066;background:#edf4ed;padding:10px;border-radius:6px}
+.admin-tabs{display:flex;gap:7px;flex-wrap:wrap;border-bottom:1px solid #d8ded6;padding-bottom:12px;margin-bottom:15px}
+.tab{padding:8px 10px;background:#eaf1eb;color:#18412f;border-radius:6px;font-size:13px;font-weight:700}
+.tab.active{background:var(--green);color:white}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.box{border:1px solid #d9e0d7;border-radius:8px;padding:14px;background:#fff}
+.box h3{margin:0 0 8px;color:#19412f;font-size:16px}
+.status{color:#087947;font-weight:bold;font-size:13px}
+
+.chat{position:fixed;right:20px;bottom:95px;z-index:35;width:330px;background:white;border-radius:14px;box-shadow:0 15px 45px #123b2d55;display:none;overflow:hidden}
+.chat.show{display:block}
+.chat-head{background:var(--green);color:#fff;padding:15px;font-weight:800}
+.chat-body{height:240px;overflow:auto;padding:13px;background:#fcfdfb}
+.msg{font-size:13px;line-height:1.35;margin:8px 0;padding:10px;border-radius:9px;background:#edf4ed}
+.msg.user{background:#f9e7b7;margin-left:30px}
+.chat-input{display:flex;padding:10px;gap:8px;border-top:1px solid #dde5dc}
+.chat-input input{min-width:0;flex:1;border:1px solid #ccd8cb;border-radius:7px;padding:9px}
+.checkout-line{padding:10px 0;border-bottom:1px dashed #ced7ce}
+.total{font-size:20px;font-weight:900;color:var(--green);margin:16px 0}
+.hidden{display:none}
+
+ @media(max-width:720px){
+.links{display:none}
+.nav{padding:14px 4%}
+.hero{padding:60px 7%}
+.perks,.how{grid-template-columns:repeat(2,1fr)}
+.footer{grid-template-columns:1fr}
+.admin-grid{grid-template-columns:1fr}
+.nav-actions.outline{display:none}
+ }
+ @media(max-width:430px){
+.perks,.how{grid-template-columns:1fr}
+.hero h1{font-size:39px}
+.bucket{right:12px}
+.chat{right:10px;width:calc(100% - 20px)}
+ }
+ </style>
+</head>
+
+<body>
+ <div class="top">ADAi, NEW PANVEL • ₹1,500 पेक्षा जास्त खरेदीवर मोफत डिलिव्हरी</div>
+
+ <nav class="nav">
+ <div class="logo">SMIT <span>PREMIUM</span> DRY FRUITS</div>
+
+ <div class="links">
+ <span>होम</span>
+ <span>उत्पादने</span>
+ <span>गिफ्ट हॅम्पर्स</span>
+ <span>आमच्याबद्दल</span>
+ </div>
+
+ <div class="nav-actions">
+ <button class="btn outline" onclick="openAdmin()">Admin Panel</button>
+ <button class="btn dark" onclick="openCart()">🛒 Bucket <span id="cartCount">0</span></button>
+ </div>
+ </nav>
+
+ <section class="hero">
+ <div class="hero-inner">
+ <div class="eyebrow">आदाई, न्यू पनवेल</div>
+ <h1>शुद्ध चव.
+प्रीमियम निवड.</h1>
+ <p>निवडक ड्राय फ्रूट्स, ताजेपणाची खात्री आणि सुंदर गिफ्ट पॅकिंग — तुमच्या प्रत्येक खास क्षणासाठी.</p>
+
+ <div class="hero-actions">
+ <button class="btn primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">उत्पादने पहा</button>
+ <button class="btn outline" style="color:white;border-color:#e6c768" onclick="openChat()">आमच्याशी चॅट करा</button>
+ </div>
+
+ <div class="chips">
+ <span class="chip">✓ Hygienic Packing</span>
+ <span class="chip">✓ Fresh Stock</span>
+ <span class="chip">✓ Fast Delivery</span>
+ </div>
+ </div>
+ </section>
+
+ <div class="perks">
+ <div class="perk"><strong>₹1,500+ Free Delivery</strong><span>आदाई, न्यू पनवेल परिसरात</span></div>
+ <div class="perk"><strong>₹25 पहिले 1 किमी</strong><span>नंतर प्रत्येक किमी ₹10</span></div>
+ <div class="perk"><strong>सुरक्षित QR Payment</strong><span>पेमेंटनंतर Invoice</span></div>
+ <div class="perk"><strong>Live Order Tracking</strong><span>Order ID ने ट्रॅक करा</span></div>
+ </div>
+
+ <main class="wrap" id="products">
+ <div class="section-title">
+ <div>
+ <h2>आमचे निवडक ड्राय फ्रूट्स</h2>
+ <p>तुमच्या आवडीचे निवडा, प्रमाण निवडा आणि बकेटमध्ये जोडा.</p>
+ </div>
+
+ <input id="search" class="search" placeholder="उत्पादन शोधा..." oninput="renderProducts()">
+ </div>
+
+ <div class="grid" id="productGrid"></div>
+ </main>
+
+ <section class="wrap" style="padding-top:0">
+ <div class="section-title">
+ <div>
+ <h2>ऑर्डर कशी कराल?</h2>
+ <p>सोप्या चार स्टेप्समध्ये तुमची ऑर्डर पूर्ण करा.</p>
+ </div>
+ </div>
+
+ <div class="how">
+ <div class="step">
+ <div class="num">01</div>
+ <h3>उत्पादन निवडा</h3>
+ <p>सर्च करून प्रमाण निवडा आणि बकेटमध्ये जोडा.</p>
+ </div>
+ <div class="step">
+ <div class="num">02</div>
+ <h3>QR ने पेमेंट</h3>
+ <p>एकूण रक्कम तपासून सुरक्षित QR पेमेंट करा.</p>
+ </div>
+ <div class="step">
+ <div class="num">03</div>
+ <h3>पत्ता व Location</h3>
+ <p>डिलिव्हरी पत्ता भरा किंवा लाईव्ह लोकेशन शेअर करा.</p>
+ </div>
+ <div class="step">
+ <div class="num">04</div>
+ <h3>Live Tracking</h3>
+ <p>Order ID वापरून ऑर्डरची स्थिती ट्रॅक करा.</p>
+ </div>
+ </div>
+ </section>
+
+ <footer class="footer">
+ <div>
+ <div class="logo" style="color:white">SMIT <span>PREMIUM</span> DRY FRUITS</div>
+ <p>शुद्धता, चव आणि दर्जाची प्रीमियम निवड. आदाई, न्यू पनवेल येथून ताजे ड्राय फ्रूट्स तुमच्या दारापर्यंत.</p>
+ </div>
+
+ <div>
+ <h3>संपर्क</h3>
+ <p>📍 Adaai, New Panvel
+🚚 ₹1,500+ वर Free Delivery
+📱 WhatsApp वर ऑर्डर उपलब्ध</p>
+ </div>
+
+ <div>
+ <h3>डिलिव्हरी</h3>
+ <p>पहिला 1 किमी: ₹25
+पुढील प्रत्येक किमी: ₹10
+ऑर्डर status: Live Tracking</p>
+ </div>
+ </footer>
+
+ <button class="bucket" onclick="openCart()">🛒 Bucket: ₹<span id="cartValue">0</span></button>
+ <button class="fab" onclick="openChat()">💬</button>
+
+ <div class="chat" id="chat">
+ <div class="chat-head">
+ Smit सहाय्यक
+ <button class="close" style="color:white" onclick="openChat()">×</button>
+ </div>
+
+ <div class="chat-body" id="chatBody">
+ <div class="msg">नमस्कार! मी Smit Premium Dry Fruits सहाय्यक आहे. कोणते ड्राय फ्रूट शोधत आहात?</div>
+ <div class="msg">उदा. “काजू”, “ऑफर”, “डिलिव्हरी चार्ज” असे विचारा.</div>
+ </div>
+
+ <div class="chat-input">
+ <input id="chatInput" placeholder="तुमचा प्रश्न लिहा..." onkeydown="if(event.key==='Enter')sendChat()">
+ <button class="btn dark" onclick="sendChat()">Send</button>
+ </div>
+ </div>
+
+ <div class="modal" id="cartModal">
+ <div class="panel">
+ <button class="close" onclick="closeModal('cartModal')">×</button>
+ <h2>तुमचे Bucket</h2>
+
+ <div id="cartItems"></div>
+
+ <div class="total">एकूण: ₹<span id="checkoutTotal">0</span></div>
+
+ <label>Delivery Distance (KM)</label>
+ <input class="field" id="distance" type="number" min="0" value="1" oninput="updateTotal()">
+
+ <p class="small">डिलिव्हरी: 1 किमीपर्यंत ₹25, त्यानंतर प्रत्येक किमीसाठी ₹10. ₹1,500+ खरेदीवर मोफत डिलिव्हरी.</p>
+
+ <button class="btn primary" style="width:100%" onclick="showCheckout()">QR Payment व Checkout</button>
+ </div>
+ </div>
+
+ <div class="modal" id="checkoutModal">
+ <div class="panel">
+ <button class="close" onclick="closeModal('checkoutModal')">×</button>
+ <h2>पेमेंट व डिलिव्हरी</h2>
+
+ <div id="paySummary"></div>
+
+ <div style="text-align:center;background:#fff;padding:12px;margin:12px 0;border-radius:10px">
+ <div style="font-weight:800;color:#17412f">UPI QR DEMO</div>
+ <div style="font-size:100px;line-height:1">▦</div>
+ <span class="small">प्रॉडक्शनमध्ये खरा UPI payment gateway जोडावा</span>
+ </div>
+
+ <label>पूर्ण Delivery Address</label>
+ <textarea class="field" id="address" rows="3" placeholder="घर/फ्लॅट, परिसर, पिनकोड"></textarea>
+
+ <button class="btn outline" style="width:100%;margin-bottom:10px" onclick="shareLocation()">📍 Live Location Share करा</button>
+ <div id="locationText" class="small"></div>
+
+ <button class="btn dark" style="width:100%;margin-top:12px" onclick="placeOrder()">Paid — Invoice Generate करा</button>
+ </div>
+ </div>
+
+ <div class="modal" id="invoiceModal">
+ <div class="panel">
+ <button class="close" onclick="closeModal('invoiceModal')">×</button>
+ <h2>ऑर्डर यशस्वी! 🎉</h2>
+
+ <div class="box">
+ <h3 id="orderId"></h3>
+ <p>तुमची ऑर्डर स्वीकारली आहे. Admin assignment नंतर तुम्ही खालील Order ID वापरून ट्रॅक करू शकता.</p>
+ <p><b>Estimated Delivery:</b> <span id="eta">45 मिनिटे</span></p>
+ <p class="status">Payment Received • Order Confirmed</p>
+ </div>
+
+ <button class="btn primary" style="margin-top:14px" onclick="closeModal('invoiceModal')">पूर्ण झाले</button>
+ </div>
+ </div>
+
+ <div class="modal" id="adminModal">
+ <div class="panel">
+ <button class="close" onclick="closeModal('adminModal')">×</button>
+
+ <div id="loginArea">
+ <h2>Admin Login</h2>
+ <p class="login-note">
+ Demo credentials: username <b>admin</b>, password <b>smit@123</b>.
+ Production मध्ये सुरक्षित backend authentication आवश्यक आहे.
+ </p>
+
+ <input id="adminUser" class="field" placeholder="Username">
+ <input id="adminPass" class="field" type="password" placeholder="Password">
+ <button class="btn dark" style="width:100%" onclick="adminLogin()">Secure Login</button>
+ </div>
+
+ <div id="adminArea" class="hidden">
+ <h2>Store Control Center</h2>
+
+ <div class="admin-tabs">
+ <button class="tab active">Dashboard</button>
+ <button class="tab">Products</button>
+ <button class="tab">Orders</button>
+ <button class="tab">Discounts</button>
+ <button class="tab">Reports</button>
+ </div>
+
+ <div class="admin-grid">
+ <div class="box">
+ <h3>आजची विक्री</h3>
+ <div style="font-size:26px;font-weight:900;color:#123d2e">₹12,840</div>
+ <p class="small">Revenue, sales आणि stock रिपोर्ट रोज email साठी तयार.</p>
+ <button class="btn outline" onclick="alert('Daily Smart Excel Report: sales, product value, revenue आणि remaining stock — smitlegally@gmail.com येथे पाठवण्यासाठी backend scheduler/SMTP जोडावा.')">Email Report सेट करा</button>
+ </div>
+
+ <div class="box">
+ <h3>ऑर्डर व्यवस्थापन</h3>
+ <p class="small">नवीन ऑर्डर: 4 • Assigned: 6 • Delivered: 18</p>
+ <button class="btn dark" onclick="alert('Order assign करा, rider व ETA निवडा. ग्राहकाला Order ID वर live status दिसेल.')">Orders पहा</button>
+ </div>
+
+ <div class="box">
+ <h3>Product Editor</h3>
+ <p class="small">फोटो, नाव, दर, stock, active/inactive व discount संपादित करा.</p>
+ <button class="btn outline" onclick="alert('Product Edit: Save / Back / Close / Active buttons, image upload आणि inventory database backend मध्ये जोडावे.')">Edit Products</button>
+ </div>
+
+ <div class="box">
+ <h3>Out of Stock Request</h3>
+ <p class="small">उत्पादन उपलब्ध नसेल तर market value + store charge + delivery ने custom quote तयार करा.</p>
+ <button class="btn outline" onclick="alert('Custom fruit request flow: product search → market price → store charge → delivery → accept/decline → ETA.')">Create Quote</button>
+ </div>
+ </div>
+
+ <div class="box" style="margin-top:15px">
+ <h3>Admin Controls Included</h3>
+ <p class="small">
+ Product list/photo edit, stock management, discounts, active status, order assignment,
+ ETA editing, order status (confirmed / packed / out for delivery / delivered),
+ daily report export आणि automated email integration points.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <script>
+ const products = [
+ {
+ id:1,
+ n:'Premium Kaju',
+ m:'W320 Whole Cashews',
+ p:950,
+ old:1050,
+ disc:'10% OFF',
+ img:'https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?auto=format&fit=crop&w=600&q=80'
+ },
+ {
+ id:2,
+ n:'California Badam',
+ m:'Premium Almonds',
+ p:780,
+ old:850,
+ disc:'8% OFF',
+ img:'https://images.unsplash.com/photo-1508061253366-3a4314e1f1c0?auto=format&fit=crop&w=600&q=80'
+ },
+ {
+ id:3,
+ n:'Iranian Pistachio',
+ m:'Salted & Roasted',
+ p:1250,
+ old:0,
+ disc:'',
+ img:'https://images.unsplash.com/photo-1587301433005-e95c3f7e2b52?auto=format&fit=crop&w=600&q=80'
+ },
+ {
+ id:4,
+ n:'Akhrot Giri',
+ m:'Premium Walnut Kernels',
+ p:1100,
+ old:1200,
+ disc:'8% OFF',
+ img:'https://images.unsplash.com/photo-1609951651556-5334e57a6d8c?auto=format&fit=crop&w=600&q=80'
+ },
+ {
+ id:5,
+ n:'Afghani Anjeer',
+ m:'Naturally Sweet Figs',
+ p:920,
+ old:0,
+ disc:'',
+ img:'https://images.unsplash.com/photo-1599599810694-b5b37304c041?auto=format&fit=crop&w=600&q=80'
+ },
+ {
+ id:6,
+ n:'Premium Raisins',
+ m:'Seedless Golden Raisins',
+ p:420,
+ old:0,
+ disc:'',
+ img:'https://images.unsplash.com/photo-1596591868231-05e260e3e0dc?auto=format&fit=crop&w=600&q=80'
+ }
+ ];
+
+ let cart = [];
+
+ function renderProducts(){
+ let q = document.getElementById('search').value.toLowerCase();
+ let arr = products.filter(x => (x.n + x.m).toLowerCase().includes(q));
+
+ document.getElementById('productGrid').innerHTML = arr.map(x => `
+ <article class="card">
+ ${x.disc ? `<span class="badge">${x.disc}</span>` : ''}
+ <img src="${x.img}" alt="${x.n}">
+ <div class="card-body">
+ <div class="name">${x.n}</div>
+ <div class="small">${x.m} • दर / 500g</div>
+ <div class="price">
+ ₹${x.p}
+ ${x.old ? `<span class="mrp">₹${x.old}</span>` : ''}
+ </div>
+ <div class="add-row">
+ <input id="q${x.id}" class="qty" type="number" value="1" min="1">
+ <button class="btn dark" onclick="addCart(${x.id})">Add to Bucket</button>
+ </div>
+ </div>
+ </article>
+ `).join('');
+ }
+
+ function addCart(id){
+ let p = products.find(x => x.id === id);
+ let q = +document.getElementById('q' + id).value || 1;
+ let existing = cart.find(x => x.id === id);
+
+ if(existing) existing.q += q;
+ else cart.push({...p, q});
+
+ updateCart();
+ alert(p.n + ' bucket मध्ये जोडले आहे.');
+ }
+
+ function updateCart(){
+ let total = cart.reduce((s,x) => s + x.p*x.q, 0);
+ document.getElementById('cartCount').textContent = cart.reduce((s,x) => s + x.q, 0);
+ document.getElementById('cartValue').textContent = total;
+ }
+
+ function openCart(){
+ document.getElementById('cartModal').classList.add('show');
+ renderCart();
+ }
+
+ function renderCart(){
+ let el = document.getElementById('cartItems');
+
+ if(!cart.length){
+ el.innerHTML = '<p class="small">तुमचे bu
