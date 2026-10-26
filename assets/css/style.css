@@ -1,0 +1,26 @@
+:root {
+ --brand-green: #123d2e;
+ --brand-dark: #102b22;
+ --brand-gold: #c89b3c;
+ --brand-cream: #fbf8ef;
+ --brand-white: #ffffff;
+}
+
+html {
+ scroll-behavior: smooth;
+}
+
+body {
+ margin: 0;
+ background: var(--brand-cream);
+ color: var(--brand-dark);
+ font-family: Inter, Arial, sans-serif;
+}
+
+img {
+ max-width: 100%;
+}
+
+button {
+ font-family: inherit;
+}
