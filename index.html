@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
+ <input
+ type="text"
+ id="search-input"
+ placeholder="Search dry fruits..."
+>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <title>Smit Premium Dry Fruits | Aadai, New Panvel</title>
@@ -121,6 +126,18 @@
  </style>
 </head>
 
+<section id="cart-section">
+ <h2>My Bucket (<span class="cart-count">0</span>)</h2>
+
+ <p id="cart-empty">तुमची bucket सध्या रिकामी आहे.</p>
+
+ <div id="cart-items"></div>
+
+ <h3>Total: <span id="cart-total">₹0</span></h3>
+
+ <button onclick="clearCart()">Clear Bucket</button>
+</section>
+ 
 <body>
  <div class="top">ADAi, NEW PANVEL • ₹1,500 पेक्षा जास्त खरेदीवर मोफत डिलिव्हरी</div>
 
